@@ -1,8 +1,8 @@
 # cfdohpw
 
-全称 Cloudflare DoH proxy worker。
+Cloudflare DoH proxy worker。
 
-借助 [Cloudflare Workers](https://workers.cloudflare.com/) 平台，无需服务器，中转 DoH 流量。
+借助 [Cloudflare Workers](https://workers.cloudflare.com/) 平台中转任意 DoH (RFC8484) 流量。无需服务器和域名。
 
 ## 如何使用
 
@@ -21,23 +21,23 @@
 
 好了，现在 `https://<worker_name>.<user_name>.workers.dev/dns-query` 就可以作为 DoH 服务器地址了。
 
-### Command-line (Wrangler)
+### 命令行
 
-(此处省略一万字)
+需要 Cloudflare 官方工具 [wrangler](https://github.com/cloudflare/wrangler)。详见官方说明。此处省略一万字。
 
-## 避免公用
+## 如何避免所有人都能使用该 worker
 
-原则上 DoH 服务器的地址都是 `https://<server_addr>/dns-query`。
+虽然 DoH 服务器的地址都是 `https://<server_addr>/dns-query`。但这个路径 `/dns-query` 其实是可以随意改的。
 
-可以修改 index.js 中的 `endpointPath` 参数来改变默认的路径，也就是 `/dns-query`，避免公用。
+可以修改 index.js 中的 `endpointPath` 参数来改变该路径。
 
-比如
+比如设定
 
 ```js
 const endpointPath = '/dns-query-with-my-passwd-123456';
 ```
 
-则服务器地址变成 `https://<server_addr>/dns-query-with-my-passwd-123456`。除非请求者知道正确的路径地址，否则 worker 会返回 404。
+则服务器地址变成 `https://<server_addr>/dns-query-with-my-passwd-123456`。只有知道路径的用户才能使用该 worker。
 
 ## Credit
 
