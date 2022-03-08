@@ -2,13 +2,17 @@
 
 Cloudflare DoH proxy worker。
 
-借助 [Cloudflare Workers](https://workers.cloudflare.com/) 平台中转任意 DoH (RFC8484) 流量。无需服务器和域名。
+借助 Cloudflare CDN 平台中转加速任意 DoH (RFC8484) 流量。无需服务器和域名。
 
 ## 如何使用
 
+Worker 的代码在项目根目录的 [index.js](https://github.com/IrineSistiana/cfdohpw/blob/main/index.js)。
+
 ### 不用软件只需浏览器点鼠标
 
-1. 注册 Cloudflare 账号。(此处省略一万字，有问题请 Google 教程很多。)
+以下教程是如何在 Cloudflare 网页控制台部署一个 worker。Cloudflare 经常更新它的网页，如果遇到问题请 Google，教程很多。
+
+1. 注册 Cloudflare 账号。
 2. 登录 [Cloudflare 控制台](https://dash.cloudflare.com/login/)。
 3. 导航栏找到 [Workers]。点击进入 Workers 设置页。
 4. 内容页面点 [Create a Service] 按钮。进入 Create a Service 设置页。
