@@ -1,4 +1,4 @@
-// 请求路径。请修改此地址，避免该 worker 所有人都能使用。
+// 请求路径。请修改此路径，避免该 worker 所有人都能使用。
 const endpointPath = '/dns-query';
 // 上游 DoH 地址。必需是域名，不能是 IP。Cloudflare 有限制。
 const upstream = 'https://dns.google/dns-query';
